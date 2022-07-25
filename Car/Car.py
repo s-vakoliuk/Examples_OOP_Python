@@ -29,26 +29,38 @@ class Car:
         self.odometer_reading += km
 
 
+class Battery:
+    """"Модель класу Battery (акумулятор)"""
+
+    def __init__(self, battery_size=75):
+        """Ініціалізуємо атрибути"""
+        self.battery_size = battery_size
+
+    def get_range(self):
+        """Вивести повідомлення про відстань, яку може подолати авто відповідно до ємності акумулятора"""
+    if self.battery_size == 75:
+        range = 260
+    elif self.battery_size == 100:
+        range = 315
+    print(f"Це авто може долати до {range} км при повному заряді акумулятора")
+
+    def describe_battery(self):
+        """Вивести повідомлення про стан об'єму акумулятора"""
+        print(f"Це авто має {self.battery_size} - KWh потужності")
+
+
 class ElectricCar(Car):
     """Модель електроавтомобіля"""
 
     def __init__(self, make, model, year):
         """Ініціалізація атрибутів батьківського класу  Car"""
-        #Car.__init__(self, make, model, year) 1 спосіб
-        super().__init__(make, model, year) # 2 спосіб
-
-
-
+        # Car.__init__(self, make, model, year) 1 спосіб
+        super().__init__(make, model, year)  # 2 спосіб
+        self.battery = Battery()
 
 
 my_car = ElectricCar("Tesla", "model x", "2020")
 print(my_car.get_descriptive_name())
 
-# Внесення даних одометра
-my_car.update_odometer(192000)
-# Зчитування даних одометра
-my_car.read_odometer()
-
-my_car.increment_odometer(250)
-my_car.read_odometer()
-
+my_car.battery.describe_battery()
+my_car.battery.get_range()
