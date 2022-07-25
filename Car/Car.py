@@ -40,7 +40,7 @@ class ElectricCar(Car):
 
 
 
-my_car = Car("Tesla", "model x", "2020")
+my_car = ElectricCar("Tesla", "model x", "2020")
 print(my_car.get_descriptive_name())
 
 # Внесення даних одометра
