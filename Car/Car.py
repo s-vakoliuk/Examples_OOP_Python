@@ -15,10 +15,12 @@ class Car:
 
     def read_odometer(self):
         """Вивести повідомлення пробігу автомобіля"""
-        print(f" Цей автомобіль має {self.odometer_reading} км. пробігу")
+        print(f"Цей автомобіль має {self.odometer_reading} км. пробігу")
 
 
 my_car = Car("FIAT", "Grande Punto", "2007")
 print(my_car.get_descriptive_name())
 
+#Внесення даних одометра
+my_car.odometer_reading = 192000
 my_car.read_odometer()
