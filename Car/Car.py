@@ -24,15 +24,30 @@ class Car:
         else:
             print("Ти не можеш відмотати показник одометра назад")
 
+    def increment_odometer(self, km):
+        """Додати задане значення до показника одометра"""
+        self.odometer_reading += km
+
+
+class ElectricCar(Car):
+    """Модель електроавтомобіля"""
+
+    def __init__(self, make, model, year):
+        """Започатковуємо атрибути батьківського класу"""
+        super().__init__(make, model, year)
 
 
 
-my_car = Car("FIAT", "Grande Punto", "2007")
+
+
+my_car = Car("Tesla", "model x", "2020")
 print(my_car.get_descriptive_name())
 
 # Внесення даних одометра
-my_car.update_odometer(193000)
+my_car.update_odometer(192000)
 # Зчитування даних одометра
 my_car.read_odometer()
 
+my_car.increment_odometer(250)
+my_car.read_odometer()
 
